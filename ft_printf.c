@@ -6,7 +6,7 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 09:52:24 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/05/13 15:52:59 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/05/19 20:15:11 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	len = 0;
 	i = 0;
+	if (!str)
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] == '%')
@@ -48,9 +50,7 @@ int	ft_printf(const char *str, ...)
 			len += ft_convert(&str[i], args);
 		}
 		else
-		{
 			len += ft_putchar(str[i]);
-		}
 		i++;
 	}
 	va_end(args);
@@ -59,13 +59,7 @@ int	ft_printf(const char *str, ...)
 /*
 int	main(void)
 {
-	char	c;
-	void	*str;
-	int	i;
 
-	i = 2500;
-	c = 'd';
-	str = "test";
-	printf("%d\n", ft_printf("%s hello", NULL));
-	printf("\n %s hello", NULL);
+	ft_printf("%d\n", ft_printf(0));
+	printf("%d\n", (printf(0)));
 }*/
